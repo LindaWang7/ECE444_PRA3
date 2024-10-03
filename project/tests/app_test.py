@@ -13,5 +13,3 @@ def test_index():
 
 def test_database():
     assert Path("flaskr.db").is_file()
-
-    
