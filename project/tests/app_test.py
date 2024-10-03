@@ -6,7 +6,22 @@ from project.app import app, db
 
 TEST_DB = "test.db"
 
+def test_search(client):
+    """Ensure users can search for posts"""
+    login(client, app.config["USERNAME"], app.config["PASSWORD"])
+    
+    client.post(
+        "/add",
+        data=dict(title="<post 1>", text="abc"),
+        follow_redirects=True,
+    )
+    rv = client.get(
+        "/search/?query=abc",
+        follow_redirects=True,
+    )
 
+    assert b"abc" in rv.data
+    
 def test_delete_message(client):
     """Ensure the messages are being deleted"""
     rv = client.get("/delete/1")

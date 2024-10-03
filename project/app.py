@@ -24,7 +24,7 @@ USERNAME = "admin"
 PASSWORD = "admin"
 SECRET_KEY = "change_me"
 
-DATABASE_URL = "postgresql://ece444_deploy_dbtest_yrjc_user:BsKq1w6FmxpQZWlIIccxzMUwcxYRuITA@dpg-crve2f3v2p9s73ehghpg-a.oregon-postgres.render.com/ece444_deploy_dbtest_yrjc"
+# DATABASE_URL = "postgresql://ece444_deploy_dbtest_yrjc_user:BsKq1w6FmxpQZWlIIccxzMUwcxYRuITA@dpg-crve2f3v2p9s73ehghpg-a.oregon-postgres.render.com/ece444_deploy_dbtest_yrjc"
 url = os.getenv("DATABASE_URL", f"sqlite:///{Path(basedir).joinpath(DATABASE)}")
 
 if url.startswith("postgres://"):
