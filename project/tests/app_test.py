@@ -5,6 +5,8 @@ import json
 from project.app import app, db
 
 TEST_DB = "test.db"
+
+
 def test_delete_message(client):
     """Ensure the messages are being deleted"""
     rv = client.get("/delete/1")
@@ -14,6 +16,8 @@ def test_delete_message(client):
     rv = client.get("/delete/1")
     data = json.loads(rv.data)
     assert data["status"] == 1
+
+
 @pytest.fixture
 def client():
     BASE_DIR = Path(__file__).resolve().parent.parent
